@@ -1,0 +1,38 @@
+h1, h3{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    color: brown;
+}
+
+
+table, th, tr, tbody{
+    text-align: center;
+    background-color: orchid;
+    border: blue;
+    border-width: 5px;
+}
+
+input{
+    width: 200px;
+}
+
+button{
+    background-color: pink;
+    color:purple
+}
+
+thead tr th{
+    color: darkmagenta;
+}
+
+select, th, thead, tbody, tr, td {
+    font-size: x-large;
+}
+
+td, tbody {
+    color:darkslategrey
+}

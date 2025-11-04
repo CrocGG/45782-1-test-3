@@ -1,0 +1,17 @@
+.nav-links .active {
+    color: purple;
+    
+}
+
+.nav-links{
+    display: flex;
+    text-align: center;
+    font-size: x-large;
+    justify-content: space-evenly;
+}
+
+.logo{
+    text-align: center;
+    align-items: center;
+}
+

@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "1ead14df-03a8-4379-a8b2-812a54aae311",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49685739",
+		"_collection_link": "https://golangalant-6661177.postman.co/workspace/Golan-Galant's-Workspace~a3c0c2d7-7b2f-4c5c-8c8b-2a03081bc10d/collection/49685739-1ead14df-03a8-4379-a8b2-812a54aae311?action=share&source=collection_link&creator=49685739"
+	},
+	"item": [
+		{
+			"name": "All movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie-get/movie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie-get",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All cinemas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie-get/cinema",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie-get",
+						"cinema"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "One movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie-get/movie/9d8f3f88-b899-11f0-ac17-e29cc1fe9c3b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie-get",
+						"movie",
+						"9d8f3f88-b899-11f0-ac17-e29cc1fe9c3b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie-delete/da0b06f8-b899-11f0-ac17-e29cc1fe9c3b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie-delete",
+						"da0b06f8-b899-11f0-ac17-e29cc1fe9c3b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Extract",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movie-extract/1d7dd3a5-b899-11f0-ac17-e29cc1fe9c3b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie-extract",
+						"1d7dd3a5-b899-11f0-ac17-e29cc1fe9c3b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cinemaId\": \"1d7df0d1-b899-11f0-ac17-e29cc1fe9c3b\",\r\n    \"movieName\": \"Flashing Outstrangers\",\r\n    \"movieTime\": \"2025-10-08 08:39:27\",\r\n    \"movieLength\": \"111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movie-add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movie-add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
