@@ -4,7 +4,6 @@ import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
 import meetingShowerRouter from './routers/meeting-shower'
 import meetingAddRouter from './routers/meeting-add'
-import meetingDeleteRouter from './routers/meeting-delete'
 import meetingExtractRouter from './routers/meeting-extract'
 import config from 'config'
 import sequelize from './db/sequelize';
@@ -24,7 +23,6 @@ app.use(json())
 
 app.use('/meeting-shower', meetingShowerRouter)
 app.use('/meeting-add', meetingAddRouter)
-app.use('/meeting-delete', meetingDeleteRouter)
 app.use('/meeting-extract', meetingExtractRouter)
 
 app.use(notFound)
