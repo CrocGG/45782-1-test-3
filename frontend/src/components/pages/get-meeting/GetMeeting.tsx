@@ -44,18 +44,6 @@ export default function GetMeeting() {
         setSelectedGroupId(event.currentTarget.value)
     }
 
-    async function deleteClick(event: React.MouseEvent<HTMLButtonElement>) {
-        try {
-            if (confirm('Are you sure?')) {
-                await meetingService.annihilateMeeting(event.currentTarget.value)
-                alert('Annihilated!!')
-            }
-            navigate('/')
-        } catch (error) {
-            alert(error)
-        }
-    }
-
     return (
         <div className='meeting-extracted-list'>
             <h1>Meeting List</h1>

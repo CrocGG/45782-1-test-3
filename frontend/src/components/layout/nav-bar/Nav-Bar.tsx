@@ -12,7 +12,7 @@ export default function Navbar() {
       </h2>
 
       <div className='nav-links'>
-        <NavLink to="/group-shower"
+        <NavLink to="/meeting-shower"
         >
           Meeting List
         </NavLink>

@@ -7,7 +7,7 @@ import { GroupModel } from "../models/Group";
 class MeetingService {
 
     public async getGroup(): Promise<GroupModel[]> {
-        const response = await axios.get<GroupModel[]>(`${applicationConfiguration.basisUrl}/group-shower`);
+        const response = await axios.get<GroupModel[]>(`${applicationConfiguration.basisUrl}/meeting-shower`);
         const meetingCategories = response.data;
         return meetingCategories;
     }
