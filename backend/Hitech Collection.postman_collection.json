@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "504ff3b3-7492-4e8b-9581-9ae0a5b0fa08",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49685739",
+		"_collection_link": "https://golangalant-6661177.postman.co/workspace/Golan-Galant's-Workspace~a3c0c2d7-7b2f-4c5c-8c8b-2a03081bc10d/collection/49685739-504ff3b3-7492-4e8b-9581-9ae0a5b0fa08?action=share&source=collection_link&creator=49685739"
+	},
+	"item": [
+		{
+			"name": "All groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/meeting-shower/meeting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"meeting-shower",
+						"meeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extract Meeting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/meeting-extract/6c4b3d2e-b954-11f0-8e63-2e0bdaeb4ec5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"meeting-extract",
+						"6c4b3d2e-b954-11f0-8e63-2e0bdaeb4ec5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Meeting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"groupId\" : \"6c4b68bd-b954-11f0-8e63-2e0bdaeb4ec5\", \r\n    \"meetingStart\": \"2025-08-02 11:34:33\", \r\n    \"meetingFinish\": \"2025-08-02 13:34:33\",\r\n    \"meetingDescription\": \"Node express new quick meeting for building brand new models for a project of amusement parks in western countries\" , \r\n    \"meetingRoom\": \"Blaster Spaceship Room\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/meeting-add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"meeting-add"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
