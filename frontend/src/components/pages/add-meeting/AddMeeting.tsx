@@ -46,10 +46,14 @@ export default function AddMeeting() {
                         {group.map(({ id, groupName }) => <option key={id} value={id}>{groupName}</option>)}
                     </select></label>
                 <div className='formError'>{formState.errors.groupId?.message}</div>
+                <div>
                 <label>Meeting Time: <input type="datetime-local" {...register('meetingStart', { required: true }
                 )} /></label>
+                </div>
+                <div>
                 <label>Meeting Time: <input type="datetime-local" {...register('meetingFinish', { required: true }
                 )} /></label>
+                </div>
                 <label>Meeting Description: <input type="text" {...register('meetingDescription', {
                     required: {
                         value: true,
@@ -71,11 +75,11 @@ export default function AddMeeting() {
                         message: 'Room is required'
                     },
                     minLength: {
-                        value: 25,
+                        value: 3,
                         message: 'Room must be at least 3 characters long'
                     },
                     maxLength: {
-                        value: 255,
+                        value: 100,
                         message: 'Room must be up to 100 characters long'
                     }
                     })} /></label>
