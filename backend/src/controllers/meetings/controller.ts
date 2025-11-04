@@ -3,15 +3,6 @@ import Group from "../../models/Group"
 import Meeting from "../../models/Meeting"
 
 
-export async function getMeetings(request: Request, response: Response, next: NextFunction) {
-    try {
-        const meetings = await Meeting.findAll({ include: Group })
-        response.json(meetings)
-    } catch (error) {
-        next(error)
-    }
-}
-
 export async function getGroups(request: Request, response: Response, next: NextFunction) {
     try {
         const meetingsCategories = await Group.findAll()

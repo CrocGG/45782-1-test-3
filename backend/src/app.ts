@@ -2,7 +2,7 @@ import express, { json } from 'express'
 import logger from './middlewares/error/logger';
 import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
-import meetingShowerRouter from './routers/meeting-shower'
+import meetingShowerRouter from './routers/group-shower'
 import meetingAddRouter from './routers/meeting-add'
 import meetingExtractRouter from './routers/meeting-extract'
 import config from 'config'
@@ -21,7 +21,7 @@ app.use(cors())
 
 app.use(json())
 
-app.use('/meeting-shower', meetingShowerRouter)
+app.use('/group-shower', meetingShowerRouter)
 app.use('/meeting-add', meetingAddRouter)
 app.use('/meeting-extract', meetingExtractRouter)
 
