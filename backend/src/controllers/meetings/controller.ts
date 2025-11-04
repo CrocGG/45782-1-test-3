@@ -42,17 +42,5 @@ export async function extractMeeting(request: Request<{ groupId: string }>, resp
     }
 }
 
-export async function getOneMeeting(request: Request<{ id: string }>, response: Response, next: NextFunction) {
-    try {
-        const meeting = await Meeting.findOne({
-            where: {
-                id: request.params.id
-            },
-            include: [Group]
-        })
-        response.json(meeting)
-    } catch (error) {
-        next(error)
-    }
-}
+
 
