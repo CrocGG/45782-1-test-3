@@ -16,16 +16,20 @@ export default class Meeting extends Model {
     groupId: string 
 
     @AllowNull(false)
-    @Column(DataType.STRING)
-    meetingName: string
+    @Column(DataType.DATE)
+    meetingStart: Date
 
     @AllowNull(false)
     @Column(DataType.DATE)
-    meetingTime: Date
+    meetingFinish: Date
 
     @AllowNull(false)
-    @Column(DataType.INTEGER)
-    meetingLength: number
+    @Column(DataType.TEXT)
+    meetingDescription: string
+
+    @AllowNull(false)
+    @Column(DataType.STRING)
+    meetingRoom: string
 
     @BelongsTo(() => Group)
     group: Group
