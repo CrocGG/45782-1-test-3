@@ -13,15 +13,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/meeting-shower/meeting",
+					"raw": "http://localhost:3000/meeting-shower",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"meeting-shower",
-						"meeting"
+						"meeting-shower"
 					]
 				}
 			},
