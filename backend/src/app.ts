@@ -3,11 +3,11 @@ import logger from './middlewares/error/logger';
 import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
 import meetingShowerRouter from './routers/meeting-shower'
-import meetingAddRouter from './routers/meeting-add'
-import meetingExtractRouter from './routers/meeting-extract'
-import config from 'config'
+import meetingAddRouter from './routers/meeting-add';
+import meetingExtractRouter from './routers/meeting-extract';
+import config from 'config';
 import sequelize from './db/sequelize';
-import cors from 'cors'
+import cors from 'cors';
 
 const app = express()
 
