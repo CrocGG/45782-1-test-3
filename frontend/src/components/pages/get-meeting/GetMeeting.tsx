@@ -3,16 +3,12 @@ import { GroupModel } from "../../../models/Group"
 import { meetingService } from "../../../services/MeetingService"
 import { ChangeEvent, useEffect, useState } from "react"
 import { MeetingModel } from "../../../models/Meeting"
-import { NavLink } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-
 
 export default function GetMeeting() {
 
     const [meetingCategories, setMeetingCategories] = useState<GroupModel[]>([])
     const [selectedGroupId, setSelectedGroupId] = useState<string>('')
     const [meetings, setMeetings] = useState<MeetingModel[]>([])
-    const navigate = useNavigate()
 
     useEffect(() => {
         (async () => {
@@ -55,24 +51,18 @@ export default function GetMeeting() {
                 <table>
                     <thead>
                         <tr>
-                            <th>meetingName</th>
-                            <th>meetingTime</th>
-                            <th>meetingLength</th>
-                            <th>Delete</th>
-                            <th>Edit</th>
+                            <th>Meeting Start</th>
+                            <th>Meeting Finish</th>
+                            <th>Meeting Description</th>
+                            <th>Meeting Room</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {meetings.map(({ id, meetingName, meetingTime, meetingLength }) => <tr key={id}>
-                            <th>{meetingName}</th>
-                            <th>{meetingTime as unknown as string}</th>
-                            <th>{meetingLength}</th>
-                            <th>
-                                <button onClick={deleteClick} value={id}>Delete</button>
-                            </th>
-                            <th><NavLink to={`meeting-patcher/${id}`}>
-                                <button>Edit</button>
-                            </NavLink></th>
+                        {meetings.map(({ id, meetingStart, meetingFinish, meetingDescription, meetingRoom }) => <tr key={id}>
+                            <th>{meetingStart as unknown as string}</th>
+                            <th>{meetingFinish as unknown as string}</th>
+                            <th>{meetingDescription}</th>
+                            <th>{meetingRoom}</th>
                         </tr>)}
                     </tbody>
                 </table>}

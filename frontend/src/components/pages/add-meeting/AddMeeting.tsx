@@ -40,37 +40,46 @@ export default function AddMeeting() {
         <div className='AddMeeting'>
             <h1>Add Meeting</h1>
             <form onSubmit={handleSubmit(onSubmit)} className='edit-meeting-form'>
-
                 <label>Group:
                     <select {...register('groupId')} defaultValue="" required>
                         <option value = "" disabled>Select Category...</option>
                         {group.map(({ id, groupName }) => <option key={id} value={id}>{groupName}</option>)}
                     </select></label>
                 <div className='formError'>{formState.errors.groupId?.message}</div>
-                <label>Meeting Name: <input type="text" {...register('meetingName', {
+                <label>Meeting Time: <input type="datetime-local" {...register('meetingStart', { required: true }
+                )} /></label>
+                <label>Meeting Time: <input type="datetime-local" {...register('meetingFinish', { required: true }
+                )} /></label>
+                <label>Meeting Description: <input type="text" {...register('meetingDescription', {
                     required: {
                         value: true,
-                        message: 'Name is required'
+                        message: 'Description is required'
+                    },
+                    minLength: {
+                        value: 25,
+                        message: 'Description must be at least 25 characters long'
                     },
                     maxLength: {
                         value: 255,
-                        message: 'Name must be up to 255 characters long'
+                        message: 'Description must be up to 255 characters long'
                     }
-                })} /></label>
-                <div className='formError'>{formState.errors.meetingName?.message}</div>
-                <label>Meeting Time: <input type="datetime-local" {...register('meetingTime', { required: true }
-                )} /></label>
-                <label>Meeting Length: <input type="number" min="1" step="1" {...register('meetingLength', {
+                    })} /></label>
+                    <div className='formError'>{formState.errors.meetingDescription?.message}</div>
+                    <label>Meeting Room: <input type="text" {...register('meetingRoom', {
                     required: {
                         value: true,
-                        message: 'Length is required'
+                        message: 'Room is required'
                     },
-                    min: {
-                        value: 60,
-                        message: 'Length must be equal/greater than 60 minutes'
+                    minLength: {
+                        value: 25,
+                        message: 'Room must be at least 3 characters long'
+                    },
+                    maxLength: {
+                        value: 255,
+                        message: 'Room must be up to 100 characters long'
                     }
-                })} /></label>
-                <div className='formError'>{formState.errors.meetingLength?.message}</div>
+                    })} /></label>
+                    <div className='formError'>{formState.errors.meetingRoom?.message}</div>
                 <div className="form-buttons">
                     <button type="submit" className='add-Meeting-btn'>Add Meeting</button>
                 </div>
