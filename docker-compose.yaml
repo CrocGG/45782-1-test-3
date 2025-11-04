@@ -1,11 +1,11 @@
 version: '3.8'
-name: theater
+name: hitech
 services:
   database:
-    container_name: theater-database
+    container_name: hitech-database
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
-      - MYSQL_DATABASE=theater
+      - MYSQL_DATABASE=hitech
       - MYSQL_TCP_PORT=3306
     ports:
       - "3309:3306"
@@ -17,7 +17,7 @@ services:
       retries: 5
       start_period: 30s
   backend:
-    container_name: theater-backend
+    container_name: hitech-backend
     environment:
       - NODE_ENV=compose
     ports:
@@ -27,7 +27,7 @@ services:
       database:
         condition: service_healthy
   frontend:
-    container_name: theater-frontend
+    container_name: hitech-frontend
     ports: 
       - 3012:80
     build:

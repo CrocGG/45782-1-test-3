@@ -1,22 +1,22 @@
 import Joi from "joi";
 
-export const createMovieValidator = Joi.object({
-    cinemaId: Joi.string().uuid().required(),
-    movieName: Joi.string().max(255).required(),
-    movieTime: Joi.date().required(),
-    movieLength: Joi.number().min(60).required(),
+export const createMeetingValidator = Joi.object({
+    groupId: Joi.string().uuid().required(),
+    meetingName: Joi.string().max(255).required(),
+    meetingTime: Joi.date().required(),
+    meetingLength: Joi.number().min(60).required(),
 })
 
 export const getAllByCategorizationValidator = Joi.object({
-    cinemaId: Joi.string().uuid().required()
+    groupId: Joi.string().uuid().required()
 })
 
-export const annihilateMovieValidator = Joi.object({
+export const annihilateMeetingValidator = Joi.object({
     id: Joi.string().uuid().required()
 })
 
-export const editMovieValidatorBody = createMovieValidator
+export const editMeetingValidatorBody = createMeetingValidator
 
-export const editMovieValidatorParams = annihilateMovieValidator
+export const editMeetingValidatorParams = annihilateMeetingValidator
 
-export const getOneMovieValidator = annihilateMovieValidator
+export const getOneMeetingValidator = annihilateMeetingValidator

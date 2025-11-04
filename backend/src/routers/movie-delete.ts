@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { annihilateMovie } from "../controllers/movies/controller";
+import { annihilateMeeting } from "../controllers/meetings/controller";
 import validation from "../middlewares/validation";
-import { annihilateMovieValidator } from "../controllers/movies/validator";
+import { annihilateMeetingValidator } from "../controllers/meetings/validator";
 
 const router = Router()
 
-router.delete('/:id', validation(annihilateMovieValidator, 2), annihilateMovie)
+router.delete('/:id', validation(annihilateMeetingValidator, 2), annihilateMeeting)
 
 export default router

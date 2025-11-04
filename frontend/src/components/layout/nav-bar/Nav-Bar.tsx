@@ -7,18 +7,18 @@ export default function Navbar() {
     <div className='Navbar'>
       <h2 className='logo'>
         <NavLink to="/">
-          Theater Website
+          Hitech Website
         </NavLink>
       </h2>
 
       <div className='nav-links'>
-        <NavLink to="/movie-shower"
+        <NavLink to="/meeting-shower"
         >
-          Movie List
+          Meeting List
         </NavLink>
-        <NavLink to="/movie-add"
+        <NavLink to="/meeting-add"
         >
-          Add Movie
+          Add Meeting
         </NavLink>
       </div>
     </div>

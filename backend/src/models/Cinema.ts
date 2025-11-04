@@ -1,10 +1,10 @@
 import { AllowNull, Column, DataType, Default, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
-import Movie from "./Movie";
+import Meeting from "./Meeting";
 
 @Table({
     underscored: true
 })
-export default class Cinema extends Model {
+export default class Group extends Model {
 
     @PrimaryKey
     @Default(DataType.UUIDV4)
@@ -13,11 +13,11 @@ export default class Cinema extends Model {
 
     @AllowNull(false)
     @Column(DataType.STRING)
-    cinemaName: string
+    groupName: string
 
-    @HasMany(() => Movie, {
+    @HasMany(() => Meeting, {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
     })
-    movies: Movie[]
+    meetings: Meeting[]
 }

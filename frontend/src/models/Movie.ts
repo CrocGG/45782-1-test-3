@@ -1,11 +1,11 @@
-import { MovieDraftModel } from "./MovieDraft";
-import { CinemaModel } from "./Cinema";
+import { MeetingDraftModel } from "./MeetingDraft";
+import { GroupModel } from "./Group";
 
-export interface MovieModel extends MovieDraftModel {
+export interface MeetingModel extends MeetingDraftModel {
     id: string
     createdAt: string
     updatedAt: string
-    cinema: CinemaModel
+    group: GroupModel
 }
 
 

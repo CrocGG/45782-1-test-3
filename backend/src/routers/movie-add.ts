@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { createMovie } from "../controllers/movies/controller";
-import { createMovieValidator } from "../controllers/movies/validator";
+import { createMeeting } from "../controllers/meetings/controller";
+import { createMeetingValidator } from "../controllers/meetings/validator";
 import validation from "../middlewares/validation";
 
 const router = Router()
 
-router.post('/', validation(createMovieValidator, 1), createMovie)
+router.post('/', validation(createMeetingValidator, 1), createMeeting)
 
 export default router

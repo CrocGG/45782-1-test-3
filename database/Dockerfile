@@ -1,4 +1,4 @@
 FROM mysql:latest
 
-COPY ./theater.sql /docker-entrypoint-initdb.d/
+COPY ./hitech.sql /docker-entrypoint-initdb.d/
 

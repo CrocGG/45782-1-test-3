@@ -1,8 +1,8 @@
-export interface MovieDraftModel {
-    cinemaId: string
-    movieName: string
-    movieTime: Date
-    movieLength: number
+export interface MeetingDraftModel {
+    groupId: string
+    meetingName: string
+    meetingTime: Date
+    meetingLength: number
 }
 
 

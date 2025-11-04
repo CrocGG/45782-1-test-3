@@ -2,10 +2,10 @@ import express, { json } from 'express'
 import logger from './middlewares/error/logger';
 import responder from './middlewares/error/responder';
 import notFound from './middlewares/not-found';
-import movieShowerRouter from './routers/movie-shower'
-import movieAddRouter from './routers/movie-add'
-import movieDeleteRouter from './routers/movie-delete'
-import movieExtractRouter from './routers/movie-extract'
+import meetingShowerRouter from './routers/meeting-shower'
+import meetingAddRouter from './routers/meeting-add'
+import meetingDeleteRouter from './routers/meeting-delete'
+import meetingExtractRouter from './routers/meeting-extract'
 import config from 'config'
 import sequelize from './db/sequelize';
 import cors from 'cors'
@@ -22,10 +22,10 @@ app.use(cors())
 
 app.use(json())
 
-app.use('/movie-shower', movieShowerRouter)
-app.use('/movie-add', movieAddRouter)
-app.use('/movie-delete', movieDeleteRouter)
-app.use('/movie-extract', movieExtractRouter)
+app.use('/meeting-shower', meetingShowerRouter)
+app.use('/meeting-add', meetingAddRouter)
+app.use('/meeting-delete', meetingDeleteRouter)
+app.use('/meeting-extract', meetingExtractRouter)
 
 app.use(notFound)
 

@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <div className='homepage'>
-            <h1>Welcome to the theater website!</h1>
+            <h1>Welcome to the hitech website!</h1>
         </div>
     )
 }

@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { getCinema, getMovie, getOneMovie, editMovie } from "../controllers/movies/controller";
+import { getGroup, getMeeting, getOneMeeting, editMeeting } from "../controllers/meetings/controller";
 import validation from "../middlewares/validation";
-import { editMovieValidatorBody, editMovieValidatorParams, getOneMovieValidator } from "../controllers/movies/validator";
+import { editMeetingValidatorBody, editMeetingValidatorParams, getOneMeetingValidator } from "../controllers/meetings/validator";
 
 const router = Router()
 
-router.get('/movie', getMovie)
-router.get('/cinema', getCinema)
-router.get('/movie/:id', validation(getOneMovieValidator, 2) , getOneMovie)
-router.patch('/movie-patcher/:id', validation(editMovieValidatorParams, 2), validation(editMovieValidatorBody, 1), editMovie)
+router.get('/meeting', getMeeting)
+router.get('/group', getGroup)
+router.get('/meeting/:id', validation(getOneMeetingValidator, 2) , getOneMeeting)
+router.patch('/meeting-patcher/:id', validation(editMeetingValidatorParams, 2), validation(editMeetingValidatorBody, 1), editMeeting)
 
 export default router

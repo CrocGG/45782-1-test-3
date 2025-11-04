@@ -1,53 +1,53 @@
 import axios from "axios";
 import { applicationConfiguration } from "../utilities/ApplicationConfiguration";
-import { MovieModel } from "../models/Movie";
-import { MovieDraftModel } from "../models/MovieDraft";
-import { CinemaModel } from "../models/Cinema";
+import { MeetingModel } from "../models/Meeting";
+import { MeetingDraftModel } from "../models/MeetingDraft";
+import { GroupModel } from "../models/Group";
 
-class MovieService {
+class MeetingService {
 
-    public async getMovie(): Promise<MovieModel[]> {
-        const response = await axios.get<MovieModel[]>(`${applicationConfiguration.basisUrl}/movie-shower/movie`);
-        const movies = response.data;
-        return movies;
+    public async getMeeting(): Promise<MeetingModel[]> {
+        const response = await axios.get<MeetingModel[]>(`${applicationConfiguration.basisUrl}/meeting-shower/meeting`);
+        const meetings = response.data;
+        return meetings;
     }
 
-    public async getCinema(): Promise<CinemaModel[]> {
-        const response = await axios.get<CinemaModel[]>(`${applicationConfiguration.basisUrl}/movie-shower/cinema`);
-        const movieCategories = response.data;
-        return movieCategories;
+    public async getGroup(): Promise<GroupModel[]> {
+        const response = await axios.get<GroupModel[]>(`${applicationConfiguration.basisUrl}/meeting-shower/group`);
+        const meetingCategories = response.data;
+        return meetingCategories;
     }
 
-    public async createMovie(movie: MovieDraftModel): Promise<MovieDraftModel> {
-        const response = await axios.post<MovieDraftModel>(`${applicationConfiguration.basisUrl}/movie-add`, movie);
+    public async createMeeting(meeting: MeetingDraftModel): Promise<MeetingDraftModel> {
+        const response = await axios.post<MeetingDraftModel>(`${applicationConfiguration.basisUrl}/meeting-add`, meeting);
         return response.data;
     }
 
-    public async annihilateMovie(id: string): Promise<boolean> {
-        const response = await axios.delete(`${applicationConfiguration.basisUrl}/movie-delete/${id}`);
+    public async annihilateMeeting(id: string): Promise<boolean> {
+        const response = await axios.delete(`${applicationConfiguration.basisUrl}/meeting-delete/${id}`);
         return response.data;
     }
 
-    public async editMovie(id: string, draft: MovieDraftModel): Promise<MovieModel> {
-        const response = await axios.patch<MovieModel>(`${applicationConfiguration.basisUrl}/movie-shower/movie-patcher/${id}`, draft);
+    public async editMeeting(id: string, draft: MeetingDraftModel): Promise<MeetingModel> {
+        const response = await axios.patch<MeetingModel>(`${applicationConfiguration.basisUrl}/meeting-shower/meeting-patcher/${id}`, draft);
         return response.data;
     }
 
-    public async extractMovie(cinemaId: string): Promise<MovieModel[]> {
-        const response = await axios.get<MovieModel[]>(`${applicationConfiguration.basisUrl}/movie-extract/${cinemaId}`);
-        const movieCategories = response.data;
-        return movieCategories;
+    public async extractMeeting(groupId: string): Promise<MeetingModel[]> {
+        const response = await axios.get<MeetingModel[]>(`${applicationConfiguration.basisUrl}/meeting-extract/${groupId}`);
+        const meetingCategories = response.data;
+        return meetingCategories;
     }
 
 
-    public async getOneMovie(id: string): Promise<MovieModel> {
-        const response = await axios.get<MovieModel>(`${applicationConfiguration.basisUrl}/movie-shower/${id}`);
-        const movie = response.data;
-        return movie;
+    public async getOneMeeting(id: string): Promise<MeetingModel> {
+        const response = await axios.get<MeetingModel>(`${applicationConfiguration.basisUrl}/meeting-shower/${id}`);
+        const meeting = response.data;
+        return meeting;
     }
 
 }
 
-export const movieService = new MovieService();
+export const meetingService = new MeetingService();
 
 

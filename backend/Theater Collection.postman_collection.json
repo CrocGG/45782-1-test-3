@@ -8,60 +8,60 @@
 	},
 	"item": [
 		{
-			"name": "All movies",
+			"name": "All meetings",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/movie-get/movie",
+					"raw": "http://localhost:3000/meeting-get/meeting",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"movie-get",
-						"movie"
+						"meeting-get",
+						"meeting"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "All cinemas",
+			"name": "All groups",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/movie-get/cinema",
+					"raw": "http://localhost:3000/meeting-get/group",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"movie-get",
-						"cinema"
+						"meeting-get",
+						"group"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "One movie",
+			"name": "One meeting",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/movie-get/movie/9d8f3f88-b899-11f0-ac17-e29cc1fe9c3b",
+					"raw": "http://localhost:3000/meeting-get/meeting/9d8f3f88-b899-11f0-ac17-e29cc1fe9c3b",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"movie-get",
-						"movie",
+						"meeting-get",
+						"meeting",
 						"9d8f3f88-b899-11f0-ac17-e29cc1fe9c3b"
 					]
 				}
@@ -69,19 +69,19 @@
 			"response": []
 		},
 		{
-			"name": "Movie Delete",
+			"name": "Meeting Delete",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/movie-delete/da0b06f8-b899-11f0-ac17-e29cc1fe9c3b",
+					"raw": "http://localhost:3000/meeting-delete/da0b06f8-b899-11f0-ac17-e29cc1fe9c3b",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"movie-delete",
+						"meeting-delete",
 						"da0b06f8-b899-11f0-ac17-e29cc1fe9c3b"
 					]
 				}
@@ -89,19 +89,19 @@
 			"response": []
 		},
 		{
-			"name": "Movie Extract",
+			"name": "Meeting Extract",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/movie-extract/1d7dd3a5-b899-11f0-ac17-e29cc1fe9c3b",
+					"raw": "http://localhost:3000/meeting-extract/1d7dd3a5-b899-11f0-ac17-e29cc1fe9c3b",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"movie-extract",
+						"meeting-extract",
 						"1d7dd3a5-b899-11f0-ac17-e29cc1fe9c3b"
 					]
 				}
@@ -109,13 +109,13 @@
 			"response": []
 		},
 		{
-			"name": "Movie Add",
+			"name": "Meeting Add",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cinemaId\": \"1d7df0d1-b899-11f0-ac17-e29cc1fe9c3b\",\r\n    \"movieName\": \"Flashing Outstrangers\",\r\n    \"movieTime\": \"2025-10-08 08:39:27\",\r\n    \"movieLength\": \"111\"\r\n}",
+					"raw": "{\r\n    \"groupId\": \"1d7df0d1-b899-11f0-ac17-e29cc1fe9c3b\",\r\n    \"meetingName\": \"Flashing Outstrangers\",\r\n    \"meetingTime\": \"2025-10-08 08:39:27\",\r\n    \"meetingLength\": \"111\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -123,14 +123,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/movie-add",
+					"raw": "http://localhost:3000/meeting-add",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"movie-add"
+						"meeting-add"
 					]
 				}
 			},

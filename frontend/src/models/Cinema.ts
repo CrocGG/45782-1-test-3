@@ -1,4 +1,4 @@
-export interface CinemaModel {
+export interface GroupModel {
     id: string
-    cinemaName: string
+    groupName: string
 }

@@ -1,21 +1,21 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import './AddMovie.css'
-import { movieService } from '../../../services/MovieService';
+import './AddMeeting.css'
+import { meetingService } from '../../../services/MeetingService';
 import { useEffect, useState } from 'react';
-import { MovieDraftModel } from '../../../models/MovieDraft';
-import { CinemaModel } from '../../../models/Cinema';
+import { MeetingDraftModel } from '../../../models/MeetingDraft';
+import { GroupModel } from '../../../models/Group';
 
-export default function AddMovie() {
+export default function AddMeeting() {
 
-    const { register, handleSubmit, reset, formState } = useForm<MovieDraftModel>();
-    const [cinema, setCinema] = useState<CinemaModel[]>([])
+    const { register, handleSubmit, reset, formState } = useForm<MeetingDraftModel>();
+    const [group, setGroup] = useState<GroupModel[]>([])
     const navigate = useNavigate();
 
-    async function onSubmit(draft: MovieDraftModel) {
+    async function onSubmit(draft: MeetingDraftModel) {
         try {
-            await movieService.createMovie(draft);
-            alert('Movie added successfully');
+            await meetingService.createMeeting(draft);
+            alert('Meeting added successfully');
             reset();
             navigate('/');
 
@@ -27,8 +27,8 @@ export default function AddMovie() {
     useEffect(() => {
         (async () => {
             try {
-                const reloadedCinemas = await movieService.getCinema()
-                setCinema(reloadedCinemas)
+                const reloadedGroups = await meetingService.getGroup()
+                setGroup(reloadedGroups)
             }
             catch (error) {
                 alert(error)
@@ -37,17 +37,17 @@ export default function AddMovie() {
     }, [])
 
     return (
-        <div className='AddMovie'>
-            <h1>Add Movie</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className='edit-movie-form'>
+        <div className='AddMeeting'>
+            <h1>Add Meeting</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className='edit-meeting-form'>
 
-                <label>Cinema:
-                    <select {...register('cinemaId')} defaultValue="" required>
+                <label>Group:
+                    <select {...register('groupId')} defaultValue="" required>
                         <option value = "" disabled>Select Category...</option>
-                        {cinema.map(({ id, cinemaName }) => <option key={id} value={id}>{cinemaName}</option>)}
+                        {group.map(({ id, groupName }) => <option key={id} value={id}>{groupName}</option>)}
                     </select></label>
-                <div className='formError'>{formState.errors.cinemaId?.message}</div>
-                <label>Movie Name: <input type="text" {...register('movieName', {
+                <div className='formError'>{formState.errors.groupId?.message}</div>
+                <label>Meeting Name: <input type="text" {...register('meetingName', {
                     required: {
                         value: true,
                         message: 'Name is required'
@@ -57,10 +57,10 @@ export default function AddMovie() {
                         message: 'Name must be up to 255 characters long'
                     }
                 })} /></label>
-                <div className='formError'>{formState.errors.movieName?.message}</div>
-                <label>Movie Time: <input type="datetime-local" {...register('movieTime', { required: true }
+                <div className='formError'>{formState.errors.meetingName?.message}</div>
+                <label>Meeting Time: <input type="datetime-local" {...register('meetingTime', { required: true }
                 )} /></label>
-                <label>Movie Length: <input type="number" min="1" step="1" {...register('movieLength', {
+                <label>Meeting Length: <input type="number" min="1" step="1" {...register('meetingLength', {
                     required: {
                         value: true,
                         message: 'Length is required'
@@ -70,9 +70,9 @@ export default function AddMovie() {
                         message: 'Length must be equal/greater than 60 minutes'
                     }
                 })} /></label>
-                <div className='formError'>{formState.errors.movieLength?.message}</div>
+                <div className='formError'>{formState.errors.meetingLength?.message}</div>
                 <div className="form-buttons">
-                    <button type="submit" className='add-Movie-btn'>Add Movie</button>
+                    <button type="submit" className='add-Meeting-btn'>Add Meeting</button>
                 </div>
             </form>
         </div>

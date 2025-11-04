@@ -1,24 +1,24 @@
-import "./GetMovie.css"
-import { CinemaModel } from "../../../models/Cinema"
-import { movieService } from "../../../services/MovieService"
+import "./GetMeeting.css"
+import { GroupModel } from "../../../models/Group"
+import { meetingService } from "../../../services/MeetingService"
 import { ChangeEvent, useEffect, useState } from "react"
-import { MovieModel } from "../../../models/Movie"
+import { MeetingModel } from "../../../models/Meeting"
 import { NavLink } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 
-export default function GetMovie() {
+export default function GetMeeting() {
 
-    const [movieCategories, setMovieCategories] = useState<CinemaModel[]>([])
-    const [selectedCinemaId, setSelectedCinemaId] = useState<string>('')
-    const [movies, setMovies] = useState<MovieModel[]>([])
+    const [meetingCategories, setMeetingCategories] = useState<GroupModel[]>([])
+    const [selectedGroupId, setSelectedGroupId] = useState<string>('')
+    const [meetings, setMeetings] = useState<MeetingModel[]>([])
     const navigate = useNavigate()
 
     useEffect(() => {
         (async () => {
             try {
-                const movieCategories = await movieService.getCinema()
-                setMovieCategories(movieCategories)
+                const meetingCategories = await meetingService.getGroup()
+                setMeetingCategories(meetingCategories)
             }
             catch (error) {
                 alert(error)
@@ -28,26 +28,26 @@ export default function GetMovie() {
 
     useEffect(() => {
         (async () => {
-            if (selectedCinemaId) {
+            if (selectedGroupId) {
                 try {
-                    const movies = await movieService.extractMovie(selectedCinemaId)
-                    setMovies(movies)
+                    const meetings = await meetingService.extractMeeting(selectedGroupId)
+                    setMeetings(meetings)
                 }
                 catch (error) {
                     alert(error)
                 }
             }
         })()
-    }, [selectedCinemaId])
+    }, [selectedGroupId])
 
-    function cinemaChanged(event: ChangeEvent<HTMLSelectElement>) {
-        setSelectedCinemaId(event.currentTarget.value)
+    function groupChanged(event: ChangeEvent<HTMLSelectElement>) {
+        setSelectedGroupId(event.currentTarget.value)
     }
 
     async function deleteClick(event: React.MouseEvent<HTMLButtonElement>) {
         try {
             if (confirm('Are you sure?')) {
-                await movieService.annihilateMovie(event.currentTarget.value)
+                await meetingService.annihilateMeeting(event.currentTarget.value)
                 alert('Annihilated!!')
             }
             navigate('/')
@@ -57,32 +57,32 @@ export default function GetMovie() {
     }
 
     return (
-        <div className='movie-extracted-list'>
-            <h1>Movie List</h1>
-            <select defaultValue="" onChange={cinemaChanged}>
+        <div className='meeting-extracted-list'>
+            <h1>Meeting List</h1>
+            <select defaultValue="" onChange={groupChanged}>
                 <option disabled value="">Select Category...</option>
-                {movieCategories.map(({ id, cinemaName }) => <option key={id} value={id}> {cinemaName}</option>)}
+                {meetingCategories.map(({ id, groupName }) => <option key={id} value={id}> {groupName}</option>)}
             </select>
-            {selectedCinemaId &&
+            {selectedGroupId &&
                 <table>
                     <thead>
                         <tr>
-                            <th>movieName</th>
-                            <th>movieTime</th>
-                            <th>movieLength</th>
+                            <th>meetingName</th>
+                            <th>meetingTime</th>
+                            <th>meetingLength</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {movies.map(({ id, movieName, movieTime, movieLength }) => <tr key={id}>
-                            <th>{movieName}</th>
-                            <th>{movieTime as unknown as string}</th>
-                            <th>{movieLength}</th>
+                        {meetings.map(({ id, meetingName, meetingTime, meetingLength }) => <tr key={id}>
+                            <th>{meetingName}</th>
+                            <th>{meetingTime as unknown as string}</th>
+                            <th>{meetingLength}</th>
                             <th>
                                 <button onClick={deleteClick} value={id}>Delete</button>
                             </th>
-                            <th><NavLink to={`movie-patcher/${id}`}>
+                            <th><NavLink to={`meeting-patcher/${id}`}>
                                 <button>Edit</button>
                             </NavLink></th>
                         </tr>)}

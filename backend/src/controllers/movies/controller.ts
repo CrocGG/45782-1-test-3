@@ -1,40 +1,40 @@
 import { NextFunction, Request, Response } from "express";
-import Cinema from "../../models/Cinema"
-import Movie from "../../models/Movie"
+import Group from "../../models/Group"
+import Meeting from "../../models/Meeting"
 
 
-export async function getMovie(request: Request, response: Response, next: NextFunction) {
+export async function getMeeting(request: Request, response: Response, next: NextFunction) {
     try {
-        const movies = await Movie.findAll({ include: Cinema })
-        response.json(movies)
+        const meetings = await Meeting.findAll({ include: Group })
+        response.json(meetings)
     } catch (error) {
         next(error)
     }
 }
 
-export async function getCinema(request: Request, response: Response, next: NextFunction) {
+export async function getGroup(request: Request, response: Response, next: NextFunction) {
     try {
-        const moviesCategories = await Cinema.findAll()
-        response.json(moviesCategories)
+        const meetingsCategories = await Group.findAll()
+        response.json(meetingsCategories)
     } catch (error) {
         next(error)
     }
 }
 
-export async function createMovie(request: Request, response: Response, next: NextFunction) {
+export async function createMeeting(request: Request, response: Response, next: NextFunction) {
     try {
-        const newMovie = await Movie.create(request.body)
-        await newMovie.reload({ include: Cinema })
-        response.json(newMovie)
+        const newMeeting = await Meeting.create(request.body)
+        await newMeeting.reload({ include: Group })
+        response.json(newMeeting)
     } catch (error) {
         next(error)
     }
 }
 
-export async function annihilateMovie(request: Request<{ id: string }>, response: Response, next: NextFunction) {
+export async function annihilateMeeting(request: Request<{ id: string }>, response: Response, next: NextFunction) {
     try {
         const { id } = request.params
-        const deletedRows = await Movie.destroy({ where: { id } })
+        const deletedRows = await Meeting.destroy({ where: { id } })
         if (deletedRows === 0) return next({
             status: 404,
             message: 'The thing you wanted to delete is already gone and/or you had the wrong code...'
@@ -45,43 +45,43 @@ export async function annihilateMovie(request: Request<{ id: string }>, response
     }
 }
 
-export async function editMovie(request: Request<{ id: string }>, response: Response, next: NextFunction) {
+export async function editMeeting(request: Request<{ id: string }>, response: Response, next: NextFunction) {
     try {
-        const movie = await Movie.findByPk(request.params.id, {
-            include: [Cinema]
+        const meeting = await Meeting.findByPk(request.params.id, {
+            include: [Group]
         });
-        const { cinemaId, movieName, movieTime, movieLength } = request.body
-        movie.cinemaId = cinemaId
-        movie.movieName = movieName
-        movie.movieTime = movieTime
-        movie.movieLength = movieLength
-        await movie.save()
-        response.json(movie)
+        const { groupId, meetingName, meetingTime, meetingLength } = request.body
+        meeting.groupId = groupId
+        meeting.meetingName = meetingName
+        meeting.meetingTime = meetingTime
+        meeting.meetingLength = meetingLength
+        await meeting.save()
+        response.json(meeting)
     } catch (e) {
         next(e)
     }
 }
 
-export async function extractMovie(request: Request<{ cinemaId: string }>, response: Response, next: NextFunction) {
+export async function extractMeeting(request: Request<{ groupId: string }>, response: Response, next: NextFunction) {
     try {
-        const { movies } = await Cinema.findByPk(request.params.cinemaId, {
-            include: [Movie]
+        const { meetings } = await Group.findByPk(request.params.groupId, {
+            include: [Meeting]
         })
-        response.json(movies)
+        response.json(meetings)
     } catch (error) {
         next(error)
     }
 }
 
-export async function getOneMovie(request: Request<{ id: string }>, response: Response, next: NextFunction) {
+export async function getOneMeeting(request: Request<{ id: string }>, response: Response, next: NextFunction) {
     try {
-        const movie = await Movie.findOne({
+        const meeting = await Meeting.findOne({
             where: {
                 id: request.params.id
             },
-            include: [Cinema]
+            include: [Group]
         })
-        response.json(movie)
+        response.json(meeting)
     } catch (error) {
         next(error)
     }
